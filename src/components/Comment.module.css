@@ -1,0 +1,102 @@
+.comment {
+  display: grid;
+  width: 100%;
+  grid-template-columns: 5rem 1fr;
+  grid-template-areas: 'A B' 'D C';
+  align-items: flex-start;
+  gap: 1.6rem;
+}
+
+.commentBox {
+  grid-area: B;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+  align-items: flex-start;
+  padding: 1.6rem 1.6rem 2.5rem;
+  border-radius: 0.9rem;
+
+  background: var(--gray-700);
+}
+
+
+.commentBox header {
+  position: relative;
+  width: 100%;
+}
+
+.commentBox header h3 {
+  font-size: 1.4rem;
+  line-height: 160%;
+  color: var(--gray-100);
+}
+.commentBox header h3 span {
+  font-size: 1.4rem;
+  line-height: 160%;
+  color: var(--gray-400);
+}
+.commentBox header time {
+  color: var(--gray-400);
+  font-size: 1.2rem;
+}
+
+.commentBox header button {
+  text-align: center;
+  background: transparent;
+  color: var(--gray-400);
+  width: fit-content;
+  height: fit-content;
+  border: 0;
+  border-radius: 0.4rem;
+  position: absolute;
+  line-height: 0;
+  right: 0;
+  top: 0;
+  cursor: pointer;
+
+  transition: color 0.2s ease-out;
+}
+.commentBox header button:hover,
+.commentBox header button:focus {
+  color: var(--red);
+}
+
+.comment p {
+  font-size: 1.4rem;
+  line-height: 160%;
+}
+
+.rate {
+  width: fit-content;
+  background: transparent;
+  border: 0;
+  border-radius: 0.4rem;
+  grid-area: C;
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+
+  color: var(--gray-400);
+
+  cursor: pointer;
+
+  transition: color 0.2s ease-out;
+}
+.rate:hover,
+.rate:focus {
+  color: var(--green-400);
+}
+
+.rate span {
+  display: flex;
+  align-items: center;
+
+  font-weight: 700;
+  font-size: 1.4rem;
+  line-height: 1.6rem;
+}
+.rate span span::before{
+  content: '\2022';
+  padding: 0 0.4rem;
+}

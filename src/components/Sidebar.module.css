@@ -19,21 +19,9 @@
   align-items: center;
 }
 
-.avatar {
-  box-sizing: initial;
-  width: 5rem;
-  height: 5rem;
-  border-radius: 8px;
-  margin-bottom: 1.6rem;
-
-  background-color: var(--gray-800);
-
-  outline: 2px solid var(--green-500);
-  border: 5px solid var(--gray-600);
-}
-
 .profile strong {
   color: var(--gray-100);
+  margin-top: 1.6rem;
   line-height: 2.6rem;
 }
 

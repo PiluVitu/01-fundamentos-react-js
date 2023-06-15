@@ -1,4 +1,5 @@
 import { PencilSimpleLine } from '@phosphor-icons/react'
+import { Avatar } from './Avatar'
 import styles from './Sidebar.module.css'
 export function Sidebar() {
   return (
@@ -9,10 +10,9 @@ export function Sidebar() {
         alt="Cover Image"
       />
       <div className={styles.profile}>
-        <img
-          className={styles.avatar}
+        <Avatar
+          hasBorder
           src="https://pbs.twimg.com/profile_images/1456460952963067910/LhmLkpJD_400x400.jpg"
-          alt="Profile Image"
         />
         <strong>Paulo Victor</strong>
         <span>Front-End Developer</span>

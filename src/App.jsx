@@ -1,5 +1,6 @@
 import styles from './App.module.css'
 import { Header } from './components/Header.jsx'
+import { Post } from './components/Post'
 import { Sidebar } from './components/Sidebar'
 
 import './global.css'
@@ -11,12 +12,9 @@ function App() {
       <div className={styles.wrapper}>
         <Sidebar />
         <main>
-          <h1>Minha pika</h1>
-          <p>
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Aspernatur laborum illum
-            voluptatum vitae rerum assumenda natus aperiam ab minus sapiente! Eos, impedit? At ipsam
-            ipsum odio, perferendis explicabo aspernatur culpa!
-          </p>
+          <Post title='Paulo Victor' link='https://piluvitu.dev' linkText='piluvitu.dev' />
+          <Post title='Paulo Victor' link='https://piluvitu.dev' linkText='piluvitu.dev' />
+          <Post title='Paulo Victor' link='https://piluvitu.dev' linkText='piluvitu.dev' />
         </main>
       </div>
     </>

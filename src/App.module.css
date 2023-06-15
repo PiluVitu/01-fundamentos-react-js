@@ -1,6 +1,6 @@
 .wrapper {
   margin: 3.2rem auto 0;
-  padding: 0 1.6rem;
+  padding: 0 1.6rem 4rem;
   max-width: 112rem;
 
   display: grid;
@@ -9,4 +9,10 @@
   align-items: flex-start;
   justify-content: center;
   grid-template-columns: 25.6rem 1fr;
+}
+
+@media (max-width: 731px) {
+  .wrapper {
+    grid-template-columns: 1fr;
+  }
 }
