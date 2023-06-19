@@ -1,40 +1,58 @@
+import { format, formatDistanceToNow } from 'date-fns'
+import ptBR from 'date-fns/locale/pt-BR'
 import { Avatar } from './Avatar'
 import { Comment } from './Comment'
 import styles from './Post.module.css'
 
-export function Post(props) {
+export function Post({ author, content, publishedAt }) {
+  const publishedDateFormat = format(publishedAt, "d 'de' LLLL 'ás' HH:mm'h'", {
+    locale: ptBR
+  })
+  const publishedAtFormat = format(publishedAt, 'yyyy-MM-dd HH:mm:SS', { locale: ptBR })
+  const publishedDateRelativeToNow = formatDistanceToNow(publishedAt, {
+    locale: ptBR,
+    addSuffix: true 
+  })
+
   return (
     <article className={styles.post}>
       <header>
         <div className={styles.profile}>
           <Avatar
-            src="https://pbs.twimg.com/profile_images/1456460952963067910/LhmLkpJD_400x400.jpg"
+            src={author.avatarUrl}
             hasBorder
           />
           <div>
-            <strong>Paulo Victor</strong>
-            <span>Front-End Developer</span>
+            <strong>{author.name}</strong>
+            <span>{author.role}</span>
           </div>
         </div>
         <time
-          title="14 de Junho ás 20:20"
-          dateTime="2023-06-14 20:18:55">
-          Publicado há 1h
+          title={publishedDateFormat}
+          dateTime={publishedAtFormat}>
+          {publishedDateRelativeToNow} 
         </time>
       </header>
       <main>
-        <p>Fala galeraa 👋</p>
-        <p>
-          Acabei de subir mais um projeto no meu portifa. É um projeto que fiz no NLW Return, evento
-          da Rocketseat. O nome do projeto é DoctorCare
+        {content.text.map(row => {
+          return <p>{row}</p>
+        })}
+        {content.links.map(link => {
+          return (
+            <a
+              target="_blank"
+              rel="noreferrer"
+              href={link.url}>
+              👉️ {link.text}
+            </a>
+          )
+        })}
+
+        <p className={styles.tags}>
+          {content.tags.map(tag => {
+            return `#${tag} `
+          })}
         </p>
-        <a
-          target="_blank"
-          rel="noreferrer"
-          href={props.link}>
-          👉️ {props.linkText}
-        </a>
-        <p className={styles.tags}>#novoprojeto #nlw #rocketseat</p>
       </main>
       <form className={styles.commentForm}>
         <h3>Deixe seu feedback</h3>
